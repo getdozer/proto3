@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "proto3",
+    "proto3-codegen",
+    "poc/types",
+    "poc/types-prost",
+]

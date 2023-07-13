@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package types_prost;
+
+message NestedStructExampleProst {
+    StructExampleProst nested_struct = 1;
+    optional StructExampleProst optional_nested_struct = 2;
+    repeated StructExampleProst vec_nested_struct = 3;
+    EnumExampleProst nested_enum = 4;
+    optional EnumExampleProst optional_nested_enum = 5;
+    repeated EnumExampleProst vec_nested_enum = 6;
+}
+
+message EnumExampleProst {
+    oneof inner {
+    google.protobuf.Empty unit_variant = 1;
+    EnumExampleProstTupleVariant tuple_variant = 2;
+    EnumExampleProstStructVariant struct_variant = 3;
+}
+}
+
+message EnumExampleProstStructVariant {
+    string string = 1;
+    int32 int = 2;
+}
+
+message EnumExampleProstTupleVariant {
+    string field_0 = 1;
+    int32 field_1 = 2;
+}
+
+message StructExampleProst {
+    string string = 1;
+    int32 int = 2;
+    optional string optional_string = 3;
+    repeated string vec_string = 4;
+}
+
+import "google/protobuf/empty.proto";
